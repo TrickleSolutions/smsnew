@@ -1,0 +1,192 @@
+
+
+                 /* ADMIN  API DOCUMENTATION  */
+================================================================================================
+
+
+Router.route('/admin').post(createAdmin);
+Router.route('/adminlogin').post(loginAdmin);
+Router.route('/admin').get(getAdmin);
+Router.route('/admin/:_id').get(getSingleAdmin);
+Router.route('/admin/:_id').delete(deleteAdmin);
+Router.route('/admin/:_id').put(Admin_upload.single('profilePic'),putAdmin);
+
+ 
+Router.route('/category/:_id').put(putCategory);
+Router.route('/category/:_id').delete(deleteCategory); 
+Router.route('/category/:_id').get(getSingleCategory); 
+Router.route('/category').post( createCategory);
+Router.get('/category',getCategory)
+
+
+Router.route('/library/:book_no').put(putLibrary);
+Router.route('/library/:book_no').delete(deleteLibrary); 
+Router.route('/library/:book_no').get(getSingleLibrary); 
+Router.route('/library').post( createLibrary);
+Router.get('/library',getLibrary) 
+
+
+
+Router.route('/income').post(income_upload.single('attach'),createincome);
+Router.route('/income').get(getincome);
+Router.route('/income/:_id').delete(deleteincome);
+Router.route('/income/:_id').get(getSingleincome);
+Router.route('/income/:_id').put(income_upload.single('attach'),putincome); 
+
+
+
+Router.route('/instructor').post(createInstructor);
+Router.route('/instructor').get(getInstructor);
+Router.route('/instructor/:_id').delete(deleteInstructor);
+Router.route('/instructor/:_id').put(instructorProfile.single('profilePic'),putInstructor);
+Router.route('/instructor/:_id').get(getSingleInstructor);
+
+
+Router.route('/course').post(course_upload.single('img'),createCourse);
+Router.route('/course').get(getCourse);
+Router.route('/course/:_id').get(getSingleCourse);
+Router.route('/course/:_id').delete(deleteCourse);
+Router.route('/course/:_id').put(course_upload.single('img'),putCourse);
+
+
+
+Router.route('/enquiry').post(createEnquiry);
+Router.route('/enquiry').get(getEnquiry);
+Router.route('/enquiry/:contact').delete(deleteEnquiry);
+Router.route('/enquiry/:contact').put(putEnquiry);
+
+
+Router.route('/expense').post(Expense_Attach.single("attach_document"),createExpense);
+Router.route('/expense/:_id').put(Expense_Attach.single("attach_document"),putExpense);
+Router.route('/expense').get(getExpense);
+Router.route('/expense/:_id').get(getSingleExpense);
+Router.route('/expense/:_id').delete(deleteExpense);
+
+
+Router.route('/studentofmonth').post(studentofmonth_upload.single('img'),createStOfMonth);
+Router.route('/studentofmonth').get(getStOfMonth);
+Router.route('/studentofmonth/:regno').delete(delStOfMonth);
+Router.route('/studentofmonth/:regno').put(studentofmonth_upload.single('img'),putStOfMonth);
+
+///Student Status Request api.........
+
+Router.route('/approvestatus/:regno').put(putApproveStStatus);
+  exp-:http://localhost:8000/api/approvestatus/1234564status=active
+
+                                INSTRUCOT  API DOCUMENTATION
+================================================================================================
+//Student Status Request CHange
+
+Router.route('/reqststatus/:_id').put(putStStatusReq);
+Router.route('/reqststatus/:_id').delete(deleteStStatusReq); 
+Router.route('/reqststatus/:_id').get(getSingleStStatusReq); 
+Router.route('/reqststatus').post( createStStatusReq);
+Router.route('/reqststatus').get(getStStatusReq)
+
+
+Router.route('/videocontent/:_id').put(coursecontentvideo_upload.single("video"),putContentVideo);
+Router.route('/videocontent/:_id').delete(deleteContentVideo); 
+Router.route('/videocontent/:_id').get(getSingleContentVideo); 
+Router.route('/videocontent').post( coursecontentvideo_upload.single("video"),createContentVideo);
+Router.get('/videocontent',getContentVideo)
+
+
+Router.route('/linkcontent/:_id').put(putContentLink);
+Router.route('/linkcontent/:_id').delete(deleteContentLink); 
+Router.route('/linkcontent/:_id').get(getSingleContentLink); 
+Router.route('/linkcontent').post( createContentLink);
+Router.get('/linkcontent',getContentLink)
+
+
+Router.route('/docxconent/:_id').put(CourseContentDoc_upload.single("doc"),putContentDoc);
+Router.route('/docxconent/:_id').delete(deleteContentDoc); 
+Router.route('/docxconent/:_id').get(getSingleContentDoc); 
+Router.route('/docxconent').post(CourseContentDoc_upload.single("doc"),createContentDoc);
+//Router.route('/docxconent').post(createContentDoc);
+Router.get('/docxconent',getContentDoc)
+
+
+
+// Router.route('/academic/:regno').put(putAcademic);
+// Router.route('/academic/:regno').delete(deleteAcademic); 
+// Router.route('/academic/:regno').get(getSingleAcademic); 
+// Router.route('/academic').post( createAcademic);
+// Router.get('/academic',getAcademic)
+
+Router.route('/academic/:_id').put(putAcademic);
+Router.route('/academic/:_id').delete(deleteAcademic); 
+Router.route('/academic/:_id').get(getSingleAcademic); 
+Router.route('/academic').post( createAcademic);
+Router.get('/academic',getAcademic)
+
+Router.route('/queries/:_id').put(putQuery);
+Router.route('/queries/:_id').delete(deleteQuery); 
+Router.route('/queries/:regno').get(getSingleQuery); 
+Router.route('/queries').post( createQuery);
+Router.get('/queries',getQuery)
+
+ 
+Router.route('/event/:_id').put(events_upload.single('img'),putEvent);
+Router.route('/event/:_id').delete(deleteEvent); 
+Router.route('/event/:_id').get(getSingleEvent); 
+Router.route('/event').post(events_upload.single('img'),createEvent);
+Router.get('/event',getEvent)
+
+
+ Router.route('/fee/:regno').put(putAddFee);
+ Router.route('/fee').post(createAddFee);
+ Router.route('/fee').get(getFee);
+ Router.route('/fee/:regno').delete(delAddFee); 
+ Router.route('/fee/:regno').get(getsingleFee); 
+ Router.route('/totalpaidfee').get(gettotalpaidFee); 
+
+
+ /*  Instructor Login */
+Router.route('/instructorlogin').post(loginInstructor);
+/*  Class ROUTER */
+
+
+Router.route('/class').post(createScheduleClass);
+ Router.route('/class/:contact_instructor').put(putScheduleClass);
+ Router.route('/class/:contact_instructor').delete(delScheduleClass); 
+ Router.route('/class').get(getAllScheduleClass);
+
+ 
+ 
+Router.route('/marks').post(createResult);
+Router.get('/marks',getAllResult) 
+ Router.route('/marks/:regno').put(putResult);
+ Router.route('/marks/:regno').delete(delResult); 
+ Router.route('/marks/:regno').get(getsingleResult);  
+
+ 
+ Router.post('/assign',assignment_upload.single('upload',{name:"upload"}),createAssignment)
+ Router.route('/assign/:contact_instructor').put(assignment_upload.single('upload'),putAssignment);
+ Router.route('/assign/:contact_instructor').delete(delAssignment);  
+ Router.route('/assign').get(getAssignment);
+
+
+
+                            STUDENT  API DOCUMENTATION
+================================================================================================
+
+Router.route('/enroll').post(createEnrollCorses);
+Router.route('/enroll').get(getEnrollCorses);
+Router.route('/enroll/:student').get(getSingleEnrollCorses);
+Router.route('/enroll/:_id').put(putEnrollCorses);
+Router.route('/enroll/:_id').delete(delEnrollCorses); 
+
+Router.route('/students').post(createSt);
+Router.route('/students').get(getSt);
+Router.route('/students/:_id').get(getsingleSt);
+Router.route('/students/:_id').put(studentProfile_upload.single('profilePic'),putSt);
+Router.route('/students/:_id').delete(delSt);
+Router.route('/studentlogin').post(loginSt);
+Router.route("/mail").get(sendforgetPass);
+Router.route("/api/userchangepassword/:token").put(stChangepass)
+
+ 
+Router.route('/uploadtask').post(tast_assignment_upload.single('img'),createuploadtask);
+Router.route('/uploadtask').get(getuploadtask);
+Router.route('/uploadtask/:regno').put(tast_assignment_upload.single('img'),putuploadtask);
+Router.route('/uploadtask/:regno').delete(deluploadtask);
